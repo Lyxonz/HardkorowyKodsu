@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using Infrastracture.Entities;
+﻿using Infrastracture.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace Infrastracture.Contexts;
@@ -194,8 +192,8 @@ public partial class AdventureWorks2022Context : DbContext
 
     public virtual DbSet<WorkOrderRouting> WorkOrderRoutings { get; set; }
 
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseSqlServer("name=DefaultConnection");
+    //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    //    => optionsBuilder.UseSqlServer("name=DefaultConnection");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
