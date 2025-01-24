@@ -1,0 +1,6 @@
+@HKAPI_HostAddress = http://localhost:5124
+
+GET {{HKAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
