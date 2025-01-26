@@ -1,4 +1,4 @@
-﻿using Infrastructure.Repository;
+﻿using Infrastructure.Repo;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers;

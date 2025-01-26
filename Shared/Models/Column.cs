@@ -3,5 +3,5 @@
 public class Column
 {
     public string Name { get; set; }
-    public List<string> Properties { get; set; }
+    public string Type { get; set; }
 }

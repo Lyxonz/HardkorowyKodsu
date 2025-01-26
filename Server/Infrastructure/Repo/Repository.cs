@@ -15,38 +15,41 @@ public class Repository : IRepository
 
     public async Task<DatabaseStructure> GetDatabaseStructureAsync()
     {
-        const string tableQuery = @"
+        string tableQuery = @"
             SELECT TABLE_NAME
             FROM INFORMATION_SCHEMA.TABLES
             WHERE TABLE_TYPE = 'BASE TABLE'";
 
-        const string viewQuery = @"
+        string viewQuery = @"
             SELECT TABLE_NAME
             FROM INFORMATION_SCHEMA.VIEWS";
 
         using var connection = _dbContext.CreateConnection();
 
-        var tables = connection.QueryAsync<string>(tableQuery);
-        var views = connection.QueryAsync<string>(viewQuery);
-
-        await Task.WhenAll(tables, views);
+        var tables = await connection.QueryAsync<string>(tableQuery);
+        var views = await connection.QueryAsync<string>(viewQuery);
 
         return new DatabaseStructure
         {
-            TableList = tables.Result.ToList(),
-            ViewList = views.Result.ToList()
+            TableList = tables.ToList(),
+            ViewList = views.ToList()
         };
     }
 
-    public async Task<IEnumerable<Table>> GetTablesStructureAsync()
+    public async Task<TablesStructure> GetTablesStructureAsync()
     {
-        const string columnsQuery = @"
-            SELECT TABLE_NAME, COLUMN_NAME, DATA_TYPE, IS_NULLABLE
+        string columnsQuery = @"
+            SELECT TABLE_NAME, COLUMN_NAME, DATA_TYPE
             FROM INFORMATION_SCHEMA.COLUMNS";
+
+        string tablesQuery = @"
+            SELECT TABLE_NAME, TABLE_TYPE
+            FROM INFORMATION_SCHEMA.TABLES";
 
         using var connection = _dbContext.CreateConnection();
 
         var columnsData = await connection.QueryAsync<dynamic>(columnsQuery);
+        var tablesData = await connection.QueryAsync<dynamic>(tablesQuery);
 
         var groupedColumns = columnsData
             .GroupBy(
@@ -54,17 +57,37 @@ public class Repository : IRepository
                 row => new Column
                 {
                     Name = (string)row.COLUMN_NAME,
-                    Properties = new List<string>
-                    {
-                        $"DataType: {row.DATA_TYPE}",
-                        $"IsNullable: {row.IS_NULLABLE}"
-                    }
+                    Type = row.DATA_TYPE
                 });
 
-        return groupedColumns.Select(g => new Table
+        var tableTypeMap = tablesData
+            .ToDictionary(
+                row => (string)row.TABLE_NAME,
+                row => (string)row.TABLE_TYPE
+            );
+
+        var tables = groupedColumns
+            .Where(g => tableTypeMap.TryGetValue(g.Key, out var type) && type == "BASE TABLE")
+            .Select(g => new Table
+            {
+                Name = g.Key,
+                Columns = g.ToList()
+            })
+            .ToList();
+
+        var views = groupedColumns
+            .Where(g => tableTypeMap.TryGetValue(g.Key, out var type) && type == "VIEW")
+            .Select(g => new Table
+            {
+                Name = g.Key,
+                Columns = g.ToList()
+            })
+            .ToList();
+
+        return new TablesStructure
         {
-            Name = g.Key,
-            Columns = g.ToList()
-        });
+            Tables = tables,
+            Views = views
+        };
     }
 }
