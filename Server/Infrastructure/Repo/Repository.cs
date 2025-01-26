@@ -60,14 +60,14 @@ public class Repository : IRepository
                     Type = row.DATA_TYPE
                 });
 
-        var tableTypeMap = tablesData
+        var tableTypeDict = tablesData
             .ToDictionary(
                 row => (string)row.TABLE_NAME,
                 row => (string)row.TABLE_TYPE
             );
 
         var tables = groupedColumns
-            .Where(g => tableTypeMap.TryGetValue(g.Key, out var type) && type == "BASE TABLE")
+            .Where(g => tableTypeDict.TryGetValue(g.Key, out var type) && type == "BASE TABLE")
             .Select(g => new Table
             {
                 Name = g.Key,
@@ -76,7 +76,7 @@ public class Repository : IRepository
             .ToList();
 
         var views = groupedColumns
-            .Where(g => tableTypeMap.TryGetValue(g.Key, out var type) && type == "VIEW")
+            .Where(g => tableTypeDict.TryGetValue(g.Key, out var type) && type == "VIEW")
             .Select(g => new Table
             {
                 Name = g.Key,
