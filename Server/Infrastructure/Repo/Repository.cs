@@ -26,13 +26,15 @@ public class Repository : IRepository
 
         using var connection = _dbContext.CreateConnection();
 
-        var tables = await connection.QueryAsync<string>(tableQuery);
-        var views = await connection.QueryAsync<string>(viewQuery);
+        var tables = connection.QueryAsync<string>(tableQuery);
+        var views = connection.QueryAsync<string>(viewQuery);
+
+        await Task.WhenAll(tables, views);
 
         return new DatabaseStructure
         {
-            TableList = tables.ToList(),
-            ViewList = views.ToList()
+            TableList = tables.Result.ToList(),
+            ViewList = views.Result.ToList()
         };
     }
 
