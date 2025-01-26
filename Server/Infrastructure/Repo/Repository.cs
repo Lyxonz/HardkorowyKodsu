@@ -1,7 +1,8 @@
 ﻿using Dapper;
+using Infrastructure.DbContext;
 using Shared.Models;
 
-namespace Infrastructure;
+namespace Infrastructure.Repo;
 
 public class Repository : IRepository
 {

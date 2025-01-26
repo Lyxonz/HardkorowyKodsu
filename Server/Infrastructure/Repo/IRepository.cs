@@ -1,6 +1,6 @@
 ﻿using Shared.Models;
 
-namespace Infrastructure;
+namespace Infrastructure.Repo;
 
 public interface IRepository
 {
