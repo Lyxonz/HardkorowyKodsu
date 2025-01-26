@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "Shared\Shared.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure", "Server\Infrastructure\Infrastructure.csproj", "{E528A712-A442-4287-8452-85101C4F4BC1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApplicationLayer", "Client\ApplicationLayer\ApplicationLayer.csproj", "{20684A60-51B6-4354-84CA-DACD0E3FB1BD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,10 @@ Global
 		{E528A712-A442-4287-8452-85101C4F4BC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E528A712-A442-4287-8452-85101C4F4BC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E528A712-A442-4287-8452-85101C4F4BC1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{20684A60-51B6-4354-84CA-DACD0E3FB1BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{20684A60-51B6-4354-84CA-DACD0E3FB1BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{20684A60-51B6-4354-84CA-DACD0E3FB1BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{20684A60-51B6-4354-84CA-DACD0E3FB1BD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -45,6 +51,7 @@ Global
 		{AE4DED2D-317C-4621-A3B9-9814A5D818AF} = {27F48C04-0319-41D5-8AAA-72CB60674D1D}
 		{1C671DD7-3D0A-42DF-9262-D0A588A2D16D} = {DFAF41BC-1312-481C-AE9A-FCA87849035A}
 		{E528A712-A442-4287-8452-85101C4F4BC1} = {DFAF41BC-1312-481C-AE9A-FCA87849035A}
+		{20684A60-51B6-4354-84CA-DACD0E3FB1BD} = {27F48C04-0319-41D5-8AAA-72CB60674D1D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B0770C60-BB2C-4196-A2F1-9DA259129EDC}
