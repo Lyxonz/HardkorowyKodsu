@@ -1,7 +1,7 @@
-﻿namespace Application.Models;
+﻿namespace Shared.Models;
 
-internal class Table
+public class Table
 {
     public string Name { get; set; }
-    public List<Column> Columns{ get; set; }
+    public IEnumerable<Column> Columns{ get; set; }
 }

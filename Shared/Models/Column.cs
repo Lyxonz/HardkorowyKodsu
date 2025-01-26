@@ -1,6 +1,6 @@
-﻿namespace Application.Models;
+﻿namespace Shared.Models;
 
-internal class Column
+public class Column
 {
     public string Name { get; set; }
     public List<string> Properties { get; set; }

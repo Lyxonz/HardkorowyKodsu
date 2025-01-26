@@ -1,6 +1,6 @@
-﻿namespace Application.Models;
+﻿namespace Shared.Models;
 
-internal class DatabaseStructure
+public class DatabaseStructure
 {
     public List<string> TableList { get; set; }
     public List<string> ViewList { get; set; }
