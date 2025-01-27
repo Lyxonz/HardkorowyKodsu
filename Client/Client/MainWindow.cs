@@ -30,7 +30,7 @@ namespace HKClient
                     treeViews.Nodes.Add(new TreeNode(view));
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show($"Failed to fetch data from server", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -66,7 +66,7 @@ namespace HKClient
                     treeViews.Nodes.Add(viewNode);
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show($"Failed to fetch data from server", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

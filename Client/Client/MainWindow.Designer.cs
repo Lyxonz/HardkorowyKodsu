@@ -28,83 +28,102 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tabControl = new System.Windows.Forms.TabControl();
-            this.tabTables = new System.Windows.Forms.TabPage();
-            this.treeTables = new System.Windows.Forms.TreeView();
-            this.tabViews = new System.Windows.Forms.TabPage();
-            this.treeViews = new System.Windows.Forms.TreeView();
-            this.btnGetDatabaseStructure = new System.Windows.Forms.Button();
-            this.btnGetTablesStructure = new System.Windows.Forms.Button();
-            this.tabControl.SuspendLayout();
-            this.tabTables.SuspendLayout();
-            this.tabViews.SuspendLayout();
-            this.SuspendLayout();
-
-            this.tabControl.Controls.Add(this.tabTables);
-            this.tabControl.Controls.Add(this.tabViews);
-            this.tabControl.Location = new System.Drawing.Point(12, 70);
-            this.tabControl.Name = "tabControl";
-            this.tabControl.SelectedIndex = 0;
-            this.tabControl.Size = new System.Drawing.Size(410, 329);
-            this.tabControl.TabIndex = 0;
- 
-            this.tabTables.Controls.Add(this.treeTables);
-            this.tabTables.Location = new System.Drawing.Point(4, 22);
-            this.tabTables.Name = "tabTables";
-            this.tabTables.Padding = new System.Windows.Forms.Padding(3);
-            this.tabTables.Size = new System.Drawing.Size(402, 303);
-            this.tabTables.TabIndex = 0;
-            this.tabTables.Text = "Tables";
-            this.tabTables.UseVisualStyleBackColor = true;
-
-            this.treeTables.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.treeTables.Location = new System.Drawing.Point(3, 3);
-            this.treeTables.Name = "treeTables";
-            this.treeTables.Size = new System.Drawing.Size(396, 297);
-            this.treeTables.TabIndex = 0;
-
-            this.tabViews.Controls.Add(this.treeViews);
-            this.tabViews.Location = new System.Drawing.Point(4, 22);
-            this.tabViews.Name = "tabViews";
-            this.tabViews.Padding = new System.Windows.Forms.Padding(3);
-            this.tabViews.Size = new System.Drawing.Size(402, 303);
-            this.tabViews.TabIndex = 1;
-            this.tabViews.Text = "Views";
-            this.tabViews.UseVisualStyleBackColor = true;
-
-            this.treeViews.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.treeViews.Location = new System.Drawing.Point(3, 3);
-            this.treeViews.Name = "treeViews";
-            this.treeViews.Size = new System.Drawing.Size(396, 297);
-            this.treeViews.TabIndex = 0;
-
-            this.btnGetDatabaseStructure.Location = new System.Drawing.Point(12, 12);
-            this.btnGetDatabaseStructure.Name = "btnGetDatabaseStructure";
-            this.btnGetDatabaseStructure.Size = new System.Drawing.Size(200, 23);
-            this.btnGetDatabaseStructure.TabIndex = 1;
-            this.btnGetDatabaseStructure.Text = "Get Database Structure";
-            this.btnGetDatabaseStructure.UseVisualStyleBackColor = true;
-            this.btnGetDatabaseStructure.Click += new System.EventHandler(this.btnGetDatabaseStructure_Click);
-
-            this.btnGetTablesStructure.Location = new System.Drawing.Point(222, 12);
-            this.btnGetTablesStructure.Name = "btnGetTablesStructure";
-            this.btnGetTablesStructure.Size = new System.Drawing.Size(200, 23);
-            this.btnGetTablesStructure.TabIndex = 2;
-            this.btnGetTablesStructure.Text = "Get Tables Structure";
-            this.btnGetTablesStructure.UseVisualStyleBackColor = true;
-            this.btnGetTablesStructure.Click += new System.EventHandler(this.btnGetTablesStructure_Click);
-
-            this.ClientSize = new System.Drawing.Size(434, 411);
-            this.Controls.Add(this.btnGetTablesStructure);
-            this.Controls.Add(this.btnGetDatabaseStructure);
-            this.Controls.Add(this.tabControl);
-            this.Name = "MainForm";
-            this.Text = "Hardkorowy Kodsu";
-            this.tabControl.ResumeLayout(false);
-            this.tabTables.ResumeLayout(false);
-            this.tabViews.ResumeLayout(false);
-            this.ResumeLayout(false);
+            tabControl = new TabControl();
+            tabTables = new TabPage();
+            treeTables = new TreeView();
+            tabViews = new TabPage();
+            treeViews = new TreeView();
+            btnGetDatabaseStructure = new Button();
+            btnGetTablesStructure = new Button();
+            tabControl.SuspendLayout();
+            tabTables.SuspendLayout();
+            tabViews.SuspendLayout();
+            SuspendLayout();
+            // 
+            // tabControl
+            // 
+            tabControl.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            tabControl.Controls.Add(tabTables);
+            tabControl.Controls.Add(tabViews);
+            tabControl.Location = new Point(12, 41);
+            tabControl.Name = "tabControl";
+            tabControl.SelectedIndex = 0;
+            tabControl.Size = new Size(576, 447);
+            tabControl.TabIndex = 0;
+            // 
+            // tabTables
+            // 
+            tabTables.Controls.Add(treeTables);
+            tabTables.Location = new Point(4, 24);
+            tabTables.Name = "tabTables";
+            tabTables.Padding = new Padding(3);
+            tabTables.Size = new Size(568, 419);
+            tabTables.TabIndex = 0;
+            tabTables.Text = "Tables";
+            tabTables.UseVisualStyleBackColor = true;
+            // 
+            // treeTables
+            // 
+            treeTables.Dock = DockStyle.Fill;
+            treeTables.Location = new Point(3, 3);
+            treeTables.Name = "treeTables";
+            treeTables.Size = new Size(562, 413);
+            treeTables.TabIndex = 0;
+            // 
+            // tabViews
+            // 
+            tabViews.Controls.Add(treeViews);
+            tabViews.Location = new Point(4, 24);
+            tabViews.Name = "tabViews";
+            tabViews.Padding = new Padding(3);
+            tabViews.Size = new Size(568, 390);
+            tabViews.TabIndex = 1;
+            tabViews.Text = "Views";
+            tabViews.UseVisualStyleBackColor = true;
+            // 
+            // treeViews
+            // 
+            treeViews.Dock = DockStyle.Fill;
+            treeViews.Location = new Point(3, 3);
+            treeViews.Name = "treeViews";
+            treeViews.Size = new Size(562, 384);
+            treeViews.TabIndex = 0;
+            // 
+            // btnGetDatabaseStructure
+            // 
+            btnGetDatabaseStructure.Location = new Point(12, 12);
+            btnGetDatabaseStructure.Name = "btnGetDatabaseStructure";
+            btnGetDatabaseStructure.Size = new Size(200, 23);
+            btnGetDatabaseStructure.TabIndex = 1;
+            btnGetDatabaseStructure.Text = "Get Database Structure";
+            btnGetDatabaseStructure.UseVisualStyleBackColor = true;
+            btnGetDatabaseStructure.Click += btnGetDatabaseStructure_Click;
+            // 
+            // btnGetTablesStructure
+            // 
+            btnGetTablesStructure.Location = new Point(222, 12);
+            btnGetTablesStructure.Name = "btnGetTablesStructure";
+            btnGetTablesStructure.Size = new Size(200, 23);
+            btnGetTablesStructure.TabIndex = 2;
+            btnGetTablesStructure.Text = "Get Tables Structure";
+            btnGetTablesStructure.UseVisualStyleBackColor = true;
+            btnGetTablesStructure.Click += btnGetTablesStructure_Click;
+            // 
+            // MainWindow
+            // 
+            ClientSize = new Size(600, 500);
+            Controls.Add(btnGetTablesStructure);
+            Controls.Add(btnGetDatabaseStructure);
+            Controls.Add(tabControl);
+            MinimumSize = new Size(600, 500);
+            Name = "MainWindow";
+            Text = "Hardkorowy Kodsu";
+            tabControl.ResumeLayout(false);
+            tabTables.ResumeLayout(false);
+            tabViews.ResumeLayout(false);
+            ResumeLayout(false);
         }
+
         private System.Windows.Forms.TabControl tabControl;
         private System.Windows.Forms.TabPage tabTables;
         private System.Windows.Forms.TreeView treeTables;
